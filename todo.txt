@@ -1,0 +1,6 @@
+schedule
+buildGanttChart
+averageWaitingTime
+averageTurnaroundTime
+printTable
+printGanttChart
