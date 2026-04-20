@@ -74,3 +74,10 @@ java Main
 
 - Keep class and method names consistent with `todo.txt`.
 - If VS Code shows package errors, ensure source root is project root (`os/`), not `methods/`.
+- In my VS Code the default Java Run-Time was set to javaSE-17, thus this was showing a warning so make sure to set that to javaSE-25+
+
+## How to Set
+
+- On vs code click **ctrl+shift+p**.
+- Type **configure java runtime**.
+- In jdk section select **javaSE-25 or any version above that**.
