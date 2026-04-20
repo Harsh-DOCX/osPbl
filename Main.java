@@ -1,16 +1,25 @@
-
 // inbuild classes
 import java.util.ArrayList;
+
+// custom classes (for data processing)
 import modules.CsvParser;
 import modules.ProcessData;
 
 // custom classes (for method of management)
-// import management method here
+import methods.FCFS;
 
 public class Main {
     public static void main(String[] args) {
         CsvParser csv = new CsvParser();
         ArrayList<ProcessData> processes = csv.getData("processes");
+        FCFS fcfs = new FCFS(processes);
+
+        fcfs.schedule();
+        fcfs.buildGanttChart();
+        fcfs.printTable();
+        fcfs.printGanttChart();
+        fcfs.averageWaitingTime();
+        fcfs.averageTurnaroundTime();
 
         /*
          * create and import the following classes (in saperate file)
