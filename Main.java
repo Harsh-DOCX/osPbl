@@ -6,7 +6,7 @@ import modules.CsvParser;
 import modules.ProcessData;
 
 // custom classes (for method of management)
-import methods.FCFS;
+import methods.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,12 +21,17 @@ public class Main {
         fcfs.averageWaitingTime();
         fcfs.averageTurnaroundTime();
 
+        SJF sjf = new SJF(processes);
+
+        sjf.schedule();
+        sjf.buildGanttChart();
+        sjf.printTable();
+        sjf.printGanttChart();
+        sjf.averageWaitingTime();
+        sjf.averageTurnaroundTime();
+
         /*
          * create and import the following classes (in saperate file)
-         * fcfs -by harsh
-         * sjf -by harshita
-         * round robin -not dicided yet (choose by your wish)
-         * priority -not decided yet (choose by your wish)
          * 
          * functions to implement in classes are written in todo.txt
          * function name should be same
