@@ -1,17 +1,13 @@
-// inbuild classes
+
 import java.util.ArrayList;
-
-// custom classes (for data processing)
-import modules.CsvParser;
-import modules.ProcessData;
-
-// custom classes (for method of management)
 import methods.*;
+import modules.*;
 
 public class Main {
     public static void main(String[] args) {
         CsvParser csv = new CsvParser();
         ArrayList<ProcessData> processes = csv.getData("processes");
+
         FCFS fcfs = new FCFS(processes);
 
         fcfs.schedule();
@@ -23,6 +19,7 @@ public class Main {
 
         SJF sjf = new SJF(processes);
 
+        System.out.println("\n\n\n");
         sjf.schedule();
         sjf.buildGanttChart();
         sjf.printTable();
@@ -30,30 +27,25 @@ public class Main {
         sjf.averageWaitingTime();
         sjf.averageTurnaroundTime();
 
-        /*
-         * create and import the following classes (in saperate file)
-         * 
-         * functions to implement in classes are written in todo.txt
-         * function name should be same
-         * make sure while calling functions in main the parameters are correct
-         * 
-         * I've already created classes to read and format data from csv file
-         * CsvParser.java retireve data from csv file
-         * ProcessData.java formats and returns the data
-         * 
-         * create your file in methods package.
-         * make sure to name and call functions carefully
-         * because same function name will be used in every file
-         * so changing one may affect other's code too
-         * 
-         * the array processes hold the data of all process in a form with
-         * {
-         *      pName = String
-         *      arrivalTime = int
-         *      burstTime = int
-         *      priority = int  (lower the number higher the priority)
-         * } 
-         * to add more processes add them in processes.csv through ms excel
-         */
+        Priority pr = new Priority(processes);
+
+        System.out.println("\n\n\n");
+        pr.schedule();
+        pr.buildGanttChart();
+        pr.printTable();
+        pr.printGanttChart();
+        pr.averageWaitingTime();
+        pr.averageTurnaroundTime();
+
+        RoundRobin rr = new RoundRobin(processes);
+
+        System.out.println("\n\n\n");
+        rr.schedule();
+        rr.buildGanttChart();
+        rr.printTable();
+        rr.printGanttChart();
+        rr.averageWaitingTime();
+        rr.averageTurnaroundTime();
+
     }
 }
